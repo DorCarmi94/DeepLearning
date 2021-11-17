@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from DeepLearning.Softmax_new import Softmax
+from sklearn.model_selection import train_test_split
 class SGD:
     def __init__(self,samples,indicators,alpha,batchSize):
         n, m1 = samples.shape
@@ -37,7 +38,7 @@ class SGD:
                 grad_fi_normalized=grad_fi*1/self.BatchSize
                 change=grad_fi_normalized*self.alpha_learningRate
                 wk=wk-change
-                print(wk)
+                #print(wk)
             totalSum=totalSum+wk
         theW=totalSum/numberOfIters
         softmax_print = Softmax(self.X_samples, self.C_indicators, theW)
@@ -46,7 +47,7 @@ class SGD:
 
 
 def testSGD_leastSqares():
-    linear = np.linspace(1, 10, 1000).reshape(-1, 1)
+    linear = np.linspace(start=1, stop=10, num=100).reshape(-1, 1)
     noise = np.random.normal(0, 2, linear.shape)
     newsignal = linear + noise * 2
     plt.plot(newsignal, 'bo')
@@ -60,14 +61,42 @@ def testSGD_leastSqares():
         else:
             C.append([1, 0])
 
-    samples=[[i,newsignal[i][0]] for i in range(len(noise))]
+    samples=[[i/len(noise),newsignal[i][0]] for i in range(len(noise))]
     samples=np.array(samples)
-    sgd=SGD(np.array(samples).T,np.array(C).T,0.0000001,10)
-    w=sgd.SGD_run(3)
-    print(w)
-    softmax_new = Softmax(samples.T,np.array(C).T, w)
+    X=np.array(samples).T
+    Y=np.array(C).T
+    X_train,X_test,y_train, y_test = train_test_split(X,Y)
+    sgd=SGD(X_train,y_train,0.001,100)
+    newW=sgd.SGD_run(3)
+    for i in range(1000):
+        sgd.W_weights=newW
+        newW=sgd.SGD_run(3)
 
+    print("predictions:\n")
+    print(np.dot(X_test.T,newW).T)
 
+    print("\n\nActual:")
+    print(y_test)
+
+def plot_graph_accuracy_vs_epoch(x_axis_t, y_axis_t, x_axis_v, y_axis_v, batch_size, eta, num_of_epochs):
+    plt.plot(x_axis_t, y_axis_t, color='green', label='Training Set', linestyle='solid', linewidth=1,
+             marker='o', markerfacecolor='green', markersize=0)
+    plt.plot(x_axis_v, y_axis_v, color='blue', label='Validation Set',  linestyle='solid', linewidth=1,
+             marker='o', markerfacecolor='blue', markersize=0)
+    # for limiting the x axis from 1
+    x_axis_1 = np.zeros(2)
+    y_axis_1 = np.zeros(2)
+    y_axis_1[1] = 1
+    plt.plot(x_axis_1, y_axis_1, color='blue', linestyle='solid', linewidth=0,
+             marker='o', markerfacecolor='blue', markersize=0)
+    plt.xlim(1, num_of_epochs)
+    m = mt.PercentFormatter(1)
+    plt.gca().yaxis.set_major_formatter(m)
+    plt.xlabel("Number of Epochs")
+    plt.ylabel('Accuracy Percentage')
+    plt.legend()
+    plt.title('Learning rate= %.2f' % eta + '       Accuracy VS Epochs        Batch size =%d' % batch_size)
+    plt.show()
 
 if __name__ == '__main__':
     testSGD_leastSqares()

@@ -4,7 +4,7 @@ from scipy.io import loadmat
 
 
 class Softmax:
-    def __init__(self, samples, indicators):
+    def __init__(self, samples, indicators,weights):
         n, m1 = samples.shape
         l, m2 = indicators.shape
         assert (m1 == m2)
@@ -13,7 +13,7 @@ class Softmax:
         self.m_numberOfSamples = m2
         self.l_numberOfLayers = l
         self.n_sizeOfEachSample = n
-        self.W_weights = self.getWeights(self.n_sizeOfEachSample, self.l_numberOfLayers)
+        self.W_weights = weights
 
     def getWeights(self, n_sizeOfEachSample, l_numberOfLayers):
         return np.random.default_rng().normal(0, 1, (n_sizeOfEachSample, l_numberOfLayers))

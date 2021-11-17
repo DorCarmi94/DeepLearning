@@ -15,40 +15,53 @@ class Softmax:
         self.n_sizeOfEachSample = n
         self.W_weights = weights
 
-    def getWeights(self, n_sizeOfEachSample, l_numberOfLayers):
+
+        self.eta = 0
+
+
+
+    def getWeights(n_sizeOfEachSample, l_numberOfLayers):
         return np.random.default_rng().normal(0, 1, (n_sizeOfEachSample, l_numberOfLayers))
+    def find_eta(self):
+        maxVectorSum = 0
+        for j in range(self.l_numberOfLayers):
+            curr = np.dot(self.X_samples.T, self.W_weights[:, j])
+            sumCurr = np.sum(curr, axis=0)
+            if (sumCurr > maxVectorSum):
+                maxVectorSum = sumCurr
+                self.eta = np.dot(self.X_samples.T, self.W_weights[:, j])
 
     def loss(self):
-        max_value = np.max(np.dot(self.W_weights, self.X_samples), axis=0)
-        # denominator = np.sum(np.exp(np.dot(self.W_weights, self.X_samples)-max_value), axis=0)
-        denominator = np.sum(np.exp(np.dot(self.W_weights, self.X_samples)), axis=0)
+        self.find_eta()
 
         another_den = 0
         for j in range(self.l_numberOfLayers):
-            another_den += np.exp(np.dot(self.X_samples.T, self.W_weights[j]))
+            another_den += np.exp(np.dot(self.X_samples.T, self.W_weights[:,j])-self.eta)
 
         totalLoss = 0
         for k in range(self.l_numberOfLayers):
             # nominator = np.exp(np.dot(self.X_samples.T, self.W_weights[k])-np.max(np.exp(np.dot(self.W_weights, self.X_samples)), axis=0))
-            nominator = np.exp(np.dot(self.X_samples.T, self.W_weights[k]))
+            nominator = np.exp(np.dot(self.X_samples.T, self.W_weights[:,k])-self.eta)
             # division=np.log(nominator / denominator)
             division = np.log(np.divide(nominator, another_den))
             totalLoss = totalLoss + np.dot(self.C_indicators[k], division)
         totalLoss = (-1) * (totalLoss / self.m_numberOfSamples)
-
         return totalLoss
 
     def gradientForLoss(self):
+        self.find_eta()
+
 
         # deriviation in respect to W
         # denomintaor=np.sum(np.exp(np.dot(self.X_samples.T,self.W_weights)),axis=0)
         denomintaor = 0
+
         for j in range(self.l_numberOfLayers):
-            denomintaor += np.exp(np.dot(self.X_samples.T, self.W_weights[j]))
+            denomintaor += np.exp(np.dot(self.X_samples.T, self.W_weights[:, j])-self.eta)
 
         collectDevForEachWp = []
         for p in range(self.l_numberOfLayers):
-            nominator = np.exp(np.dot(self.X_samples.T, self.W_weights[p]))
+            nominator = np.exp(np.dot(self.X_samples.T, self.W_weights[:, p])-self.eta)
             division = nominator / denomintaor
             insideParenthesis = division - self.C_indicators[p]
             theCurrentGradForWp = np.dot(self.X_samples, insideParenthesis)
@@ -114,7 +127,10 @@ if __name__ == '__main__':
     Yt = dataset["Yt"]
     Ct = dataset["Ct"]
 
-    softMax = Softmax(Yt, Ct)
+    n, m1 = Yt.shape
+    l, m2 = Ct.shape
+    weights=Softmax.getWeights(n,l)
+    softMax = Softmax(Yt, Ct,weights)
     softMax.gradientTestForSoftMaxLoss()
     
     

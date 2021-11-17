@@ -18,6 +18,12 @@ class Softmax:
 
         self.eta = 0
 
+    def theSoftmax(self):   #forward
+        res=np.dot(self.W_weights,self.X_samples)
+        exp_up = (np.exp(res-np.max(res)))
+        exp_down = np.sum(exp_up, axis=0)
+        return exp_up/exp_down
+
 
 
     def getWeights(n_sizeOfEachSample, l_numberOfLayers):

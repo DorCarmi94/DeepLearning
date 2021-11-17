@@ -78,25 +78,7 @@ def testSGD_leastSqares():
     print("\n\nActual:")
     print(y_test)
 
-def plot_graph_accuracy_vs_epoch(x_axis_t, y_axis_t, x_axis_v, y_axis_v, batch_size, eta, num_of_epochs):
-    plt.plot(x_axis_t, y_axis_t, color='green', label='Training Set', linestyle='solid', linewidth=1,
-             marker='o', markerfacecolor='green', markersize=0)
-    plt.plot(x_axis_v, y_axis_v, color='blue', label='Validation Set',  linestyle='solid', linewidth=1,
-             marker='o', markerfacecolor='blue', markersize=0)
-    # for limiting the x axis from 1
-    x_axis_1 = np.zeros(2)
-    y_axis_1 = np.zeros(2)
-    y_axis_1[1] = 1
-    plt.plot(x_axis_1, y_axis_1, color='blue', linestyle='solid', linewidth=0,
-             marker='o', markerfacecolor='blue', markersize=0)
-    plt.xlim(1, num_of_epochs)
-    m = mt.PercentFormatter(1)
-    plt.gca().yaxis.set_major_formatter(m)
-    plt.xlabel("Number of Epochs")
-    plt.ylabel('Accuracy Percentage')
-    plt.legend()
-    plt.title('Learning rate= %.2f' % eta + '       Accuracy VS Epochs        Batch size =%d' % batch_size)
-    plt.show()
+
 
 if __name__ == '__main__':
     testSGD_leastSqares()

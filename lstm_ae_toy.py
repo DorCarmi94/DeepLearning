@@ -70,36 +70,68 @@ class train_toyModel():
     def train(self):
         trainingLosses=[]
         validationLosses=[]
+        sampledBatch=[]
+        sampledBatchOutput=[]
         GPU_or_CPU=torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.ae.to(GPU_or_CPU)
         for i in range(self.numOfIters):
             loss=0
+            countBatches=0
             for batch in self.x_data:
+                self.optim.zero_grad()
                 currBatch=batch.to(GPU_or_CPU)
                 aeOut=self.ae.forward(currBatch)
                 calc_andGetLoss=0
                 if(self.MES_string=="MSE"):
                     calc_andGetLoss=nn.MSELoss().forward(aeOut,currBatch)
-                else:
+                # else:
                     #todo: check about NLL loss
-                    calc_andGetLoss=nn.NLLLoss().forward(nn.LogSoftmax(1)(aeOut),currBatch)
+                    #calc_andGetLoss=nn.NLLLoss().forward(nn.LogSoftmax(1)(aeOut),currBatch)
+                    # m=nn.LogSoftmax(dim=2)
+                    # loss=nn.NLLLoss()
+                    # calc_andGetLoss=loss(m(aeOut),currBatch)
                 calc_andGetLoss.backward() # calculate gradients
                 self.optim.step()
                 loss+=calc_andGetLoss.item()
-                self.optim.zero_grad()
+
+                if(countBatches==10):
+                    sampledBatch=currBatch
+                    sampledBatchOutput=aeOut
+                countBatches+=1
             avgLossForIter=loss/len(self.x_data)
             trainingLosses.append(avgLossForIter)
-        return trainingLosses
+        return trainingLosses,sampledBatch,sampledBatchOutput
 
 def startToRun():
     batchSize=50
     data=load_data(batchSize)
     train=train_toyModel("sgd","MSE",data,data,4,0.001)
-    training_losses=train.train()
+    training_losses,sampledBatch,sampledBatchOutput=train.train()
 
+    plt.figure()
     plt.title("Loss")
     plt.plot(range(len(training_losses)),training_losses)
     plt.show()
+
+    plt.figure()
+    plt.title("signals")
+    a=sampledBatch.detach()
+    b=a.cpu()
+    c=b.squeeze()
+
+    aa = sampledBatchOutput.detach()
+    bb = aa.cpu()
+    cc = bb.squeeze()
+
+    for bt1,bt2 in zip(c,cc):
+        plt.plot(bt1)
+        plt.plot(bt2)
+        break
+    plt.show()
+
+
+    # plt.plot(cc)
+    # plt.show()
 
 if __name__ == '__main__':
     startToRun()

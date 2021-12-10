@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82055d74-8c7c-41d0-b846-135a7e4422de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/encoder_decoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lstm_ae_toy.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/HW2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HW2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/encoder_decoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/encoder_decoder_toyModel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lstm_ae_toy.py" beforeDir="false" afterPath="$PROJECT_DIR$/lstm_ae_toy.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,10 +32,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lstm_ae_toy.py" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager" selected="Python.lstm_ae_toy">
-    <configuration name="encoder_decoder" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="encoder_decoder_toyModel" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="HW2" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -48,7 +48,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/encoder_decoder.py" />
+      <option name="SCRIPT_NAME" value="D:\University\7th Semester\Deep learning\HW\HW2\HW2\DeepLearning\encoder_decoder_toyModel.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -64,9 +64,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lstm_ae_toy.py" />
@@ -78,14 +78,18 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.lstm_ae_toy" />
+      <item itemvalue="Python.encoder_decoder_toyModel" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.lstm_ae_toy" />
-        <item itemvalue="Python.encoder_decoder" />
+        <item itemvalue="Python.encoder_decoder_toyModel" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -104,11 +108,63 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="223" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1639122248443">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639122248442" />
+    <state x="548" y="170" key="FileChooserDialogImpl" timestamp="1639122243473">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="548" y="170" key="FileChooserDialogImpl/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639122243473" />
+    <state width="1515" height="106" key="GridCell.Tab.0.bottom" timestamp="1639126484382">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="106" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639126484382" />
+    <state width="1515" height="106" key="GridCell.Tab.0.center" timestamp="1639126484382">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="106" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639126484382" />
+    <state width="1515" height="106" key="GridCell.Tab.0.left" timestamp="1639126484382">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="106" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639126484382" />
+    <state width="1515" height="106" key="GridCell.Tab.0.right" timestamp="1639126484382">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="106" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639126484382" />
+    <state width="1515" height="106" key="GridCell.Tab.1.bottom" timestamp="1639126476344">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="106" key="GridCell.Tab.1.bottom/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639126476344" />
+    <state width="1515" height="106" key="GridCell.Tab.1.center" timestamp="1639126476344">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="106" key="GridCell.Tab.1.center/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639126476344" />
+    <state width="1515" height="106" key="GridCell.Tab.1.left" timestamp="1639126476344">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="106" key="GridCell.Tab.1.left/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639126476344" />
+    <state width="1515" height="106" key="GridCell.Tab.1.right" timestamp="1639126476344">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="106" key="GridCell.Tab.1.right/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639126476344" />
+    <state x="279" y="58" key="SettingsEditor" timestamp="1639122253648">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="279" y="58" key="SettingsEditor/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639122253648" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1639122712607">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639122712607" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

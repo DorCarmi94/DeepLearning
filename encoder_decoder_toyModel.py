@@ -10,7 +10,7 @@ import pandas as pd
 
 
 
-class encoder_decoder(nn.Module):
+class encoder_decoder_toyModel(nn.Module):
     def __init__(self, hidden_n,seq_size):
         super().__init__()
         self.encoder=nn.LSTM(1,hidden_n,batch_first=True)

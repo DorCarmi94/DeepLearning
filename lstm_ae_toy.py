@@ -1,13 +1,17 @@
-import numpy as np
-import matplotlib.pyplot as plt
 import csv
-from torch.utils.data.dataset import TensorDataset
-import torch.nn as nn
-import torch
-from torch.utils.data.dataloader import DataLoader
-from encoder_decoder import encoder_decoder
-from sklearn.model_selection import train_test_split
+import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
+
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data.dataloader import DataLoader
+from torch.utils.data.dataset import TensorDataset
+
+from encoder_decoder_toyModel import encoder_decoder_toyModel
+from sklearn.model_selection import train_test_split
+
 
 def create_syntetic_data(dim_in=1000,dim_out=50):
     matrix=np.random.randn(dim_in,dim_out)
@@ -28,14 +32,12 @@ def upload_to_file():
     writer.writerow(sqweezed_data)
     file.close()
 
-def load_data():
+def load_data(bs):
     # sqweezed_data=create_syntetic_data()
     tensorDataSet=pd.read_csv("toy_train.csv")
     tensorDataSet=np.expand_dims(tensorDataSet,2).astype(np.float32)
-    data_l=DataLoader(tensorDataSet,batch_size=1)
+    data_l=DataLoader(tensorDataSet,batch_size=bs)
     return data_l
-
-
 
 def upload():
     rng = np.random.default_rng()
@@ -50,9 +52,58 @@ def upload():
 
 # upload()
 
-data_l=load_data()
-encoder=encoder_decoder(250,50)
+
+class train_toyModel():
+    def __init__(self,sgd_string,MSE_string,data,validationData,numberOfIterations,learningRate):
+        self.ae=encoder_decoder_toyModel(250,50)
+        self.learningRate=learningRate
+        if(sgd_string=="sgd"):
+            self.optim=optim.SGD(self.ae.parameters(),self.learningRate)
+        else:
+            self.optim=optim.Adam(self.ae.parameters(),self.learningRate)
+
+        self.x_data=data # tensor
+        self.validationData=validationData
+        self.numOfIters=numberOfIterations
+        self.MES_string=MSE_string
+
+    def train(self):
+        trainingLosses=[]
+        validationLosses=[]
+        GPU_or_CPU=torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.ae.to(GPU_or_CPU)
+        for i in range(self.numOfIters):
+            loss=0
+            for batch in self.x_data:
+                currBatch=batch.to(GPU_or_CPU)
+                aeOut=self.ae.forward(currBatch)
+                calc_andGetLoss=0
+                if(self.MES_string=="MSE"):
+                    calc_andGetLoss=nn.MSELoss().forward(aeOut,currBatch)
+                else:
+                    #todo: check about NLL loss
+                    calc_andGetLoss=nn.NLLLoss().forward(nn.LogSoftmax(1)(aeOut),currBatch)
+                calc_andGetLoss.backward() # calculate gradients
+                self.optim.step()
+                loss+=calc_andGetLoss.item()
+                self.optim.zero_grad()
+            avgLossForIter=loss/len(self.x_data)
+            trainingLosses.append(avgLossForIter)
+        return trainingLosses
+
+def startToRun():
+    batchSize=50
+    data=load_data(batchSize)
+    train=train_toyModel("sgd","MSE",data,data,4,0.001)
+    training_losses=train.train()
+
+    plt.title("Loss")
+    plt.plot(range(len(training_losses)),training_losses)
+    plt.show()
+
+if __name__ == '__main__':
+    startToRun()
 # encoder.forward(data_l)
-for b in data_l:
-    encoder.forward(b)
+# for b in data_l:
+#     encoder.forward(b)
 # # encoder.forward(np.expand_dims(data_l.tensors[0],2))

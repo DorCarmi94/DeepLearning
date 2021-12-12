@@ -84,12 +84,6 @@ class train_toyModel():
                 calc_andGetLoss=0
                 if(self.MES_string=="MSE"):
                     calc_andGetLoss=nn.MSELoss().forward(aeOut,currBatch)
-                # else:
-                    #todo: check about NLL loss
-                    #calc_andGetLoss=nn.NLLLoss().forward(nn.LogSoftmax(1)(aeOut),currBatch)
-                    # m=nn.LogSoftmax(dim=2)
-                    # loss=nn.NLLLoss()
-                    # calc_andGetLoss=loss(m(aeOut),currBatch)
                 calc_andGetLoss.backward() # calculate gradients
                 self.optim.step()
                 loss+=calc_andGetLoss.item()

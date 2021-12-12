@@ -29,10 +29,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lstm_ae_toy.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lstm_ae_mnist_new.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.lstm_ae_toy">
+  <component name="RunManager" selected="Python.mnist_new">
     <configuration name="encoder_decoder_toyModel" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="HW2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -54,7 +54,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="lstm_ae_toy" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="lstm_ae_toy_new" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="HW2" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -66,7 +66,28 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lstm_ae_toy.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lstm_ae_toy_new.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="mnist_new" type="PythonConfigurationType" factoryName="Python">
+      <module name="HW2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lstm_ae_mnist_new.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -76,12 +97,13 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.lstm_ae_toy" />
+      <item itemvalue="Python.mnist_new" />
+      <item itemvalue="Python.lstm_ae_toy_new" />
       <item itemvalue="Python.encoder_decoder_toyModel" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.lstm_ae_toy" />
+        <item itemvalue="Python.lstm_ae_toy_new" />
         <item itemvalue="Python.encoder_decoder_toyModel" />
       </list>
     </recent_temporary>
@@ -104,7 +126,13 @@
       <option name="presentableId" value="LOCAL‎00001" />
       <updated>1639126812675</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL‎00002" summary="&quot;update and add toy train and try to test&quot;">
+      <created>1639129085665</created>
+      <option name="number" value="LOCAL‎00002" />
+      <option name="presentableId" value="LOCAL‎00002" />
+      <updated>1639129085665</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -122,57 +150,66 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="&quot;update and add toy train&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;update and add toy train&quot;" />
+    <MESSAGE value="&quot;update and add toy train and try to test&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;update and add toy train and try to test&quot;" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1639122248443">
+    <state x="223" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1639312111350">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639122248442" />
-    <state x="394" y="11" key="CommitChangelistDialog2" timestamp="1639126811254">
+    <state x="223" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639312111350" />
+    <state x="394" y="11" key="CommitChangelistDialog2" timestamp="1639129084678">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="394" y="11" key="CommitChangelistDialog2/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639126811254" />
-    <state x="548" y="170" key="FileChooserDialogImpl" timestamp="1639122243473">
+    <state x="394" y="11" key="CommitChangelistDialog2/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639129084677" />
+    <state width="1308" height="466" key="DebuggerActiveHint" timestamp="1639225917578">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="548" y="170" key="FileChooserDialogImpl/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639122243473" />
-    <state width="1515" height="121" key="GridCell.Tab.0.bottom" timestamp="1639128889405">
+    <state width="1308" height="466" key="DebuggerActiveHint/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639225917578" />
+    <state x="548" y="170" key="FileChooserDialogImpl" timestamp="1639312109874">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="121" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639128889405" />
-    <state width="1515" height="121" key="GridCell.Tab.0.center" timestamp="1639128889405">
+    <state x="548" y="170" key="FileChooserDialogImpl/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639312109874" />
+    <state width="1515" height="168" key="GridCell.Tab.0.bottom" timestamp="1639246384642">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="121" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639128889405" />
-    <state width="1515" height="121" key="GridCell.Tab.0.left" timestamp="1639128889405">
+    <state width="1515" height="168" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639246384642" />
+    <state width="1515" height="168" key="GridCell.Tab.0.center" timestamp="1639246384642">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="121" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639128889405" />
-    <state width="1515" height="121" key="GridCell.Tab.0.right" timestamp="1639128889405">
+    <state width="1515" height="168" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639246384642" />
+    <state width="1515" height="168" key="GridCell.Tab.0.left" timestamp="1639246384642">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="121" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639128889405" />
-    <state width="1515" height="88" key="GridCell.Tab.1.bottom" timestamp="1639128426036">
+    <state width="1515" height="168" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639246384642" />
+    <state width="1515" height="168" key="GridCell.Tab.0.right" timestamp="1639246384642">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="88" key="GridCell.Tab.1.bottom/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639128426036" />
-    <state width="1515" height="88" key="GridCell.Tab.1.center" timestamp="1639128426036">
+    <state width="1515" height="168" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639246384642" />
+    <state width="1515" height="168" key="GridCell.Tab.1.bottom" timestamp="1639246384642">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="88" key="GridCell.Tab.1.center/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639128426036" />
-    <state width="1515" height="88" key="GridCell.Tab.1.left" timestamp="1639128426036">
+    <state width="1515" height="168" key="GridCell.Tab.1.bottom/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639246384642" />
+    <state width="1515" height="168" key="GridCell.Tab.1.center" timestamp="1639246384642">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="88" key="GridCell.Tab.1.left/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639128426036" />
-    <state width="1515" height="88" key="GridCell.Tab.1.right" timestamp="1639128426036">
+    <state width="1515" height="168" key="GridCell.Tab.1.center/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639246384642" />
+    <state width="1515" height="168" key="GridCell.Tab.1.left" timestamp="1639246384642">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="88" key="GridCell.Tab.1.right/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639128426036" />
+    <state width="1515" height="168" key="GridCell.Tab.1.left/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639246384642" />
+    <state width="1515" height="168" key="GridCell.Tab.1.right" timestamp="1639246384642">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="168" key="GridCell.Tab.1.right/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639246384642" />
     <state x="279" y="58" key="SettingsEditor" timestamp="1639122253648">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="279" y="58" key="SettingsEditor/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639122253648" />
+    <state x="580" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1639129100333">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="580" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1639129100333" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1639122712607">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -180,6 +217,28 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/lstm_ae_toy.py</url>
+          <line>82</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/lstm_ae_toy_new.py</url>
+          <line>14</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/lstm_ae_toy_new.py</url>
+          <line>107</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/lstm_ae_toy_new.py</url>
+          <line>21</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
